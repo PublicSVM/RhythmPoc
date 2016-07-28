@@ -1,19 +1,19 @@
-﻿namespace Assets.Scripts.Orchestra
+﻿namespace Assets.Scripts.Events
 {
-    public delegate void BeatEventHandler(int beat, int measure);
+    public delegate void TrackEventHandler(int beat, int measure);
 
     public class TrackEvents
     {
-        public event BeatEventHandler BeatEvent;
+        public event TrackEventHandler TrackEvent;
 
         private int _beat = -1;
         private int _measure = 0;
 
         protected virtual void OnBeat(int beat, int measure)
         {
-            if (BeatEvent != null)
+            if (TrackEvent != null)
             {
-                BeatEvent.Invoke(beat, measure);
+                TrackEvent.Invoke(beat, measure);
             }
         }
 

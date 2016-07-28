@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using System.Timers;
 
-namespace Assets.Scripts.Orchestra
+namespace Assets.Scripts.Events
 {
-    public class Orchestration : MonoBehaviour
+    public class Conductor : MonoBehaviour
     {
         private Timer _timer;
         private TrackEvents _track;
-
         private int _cooldown;
 
-        public Orchestration()
+        public Conductor()
         {
             _track = new TrackEvents();
             _cooldown = 0;
@@ -29,13 +28,13 @@ namespace Assets.Scripts.Orchestra
             }
         }
 
-        public void SubscribeToElapsed(BeatEventHandler Method)
+        public void Subscribe(TrackEventHandler Method)
         {
-            _track.BeatEvent += Method;
+            _track.TrackEvent += Method;
         }
-        public void UnsubscribeToElapsed(BeatEventHandler Method)
+        public void Unsubscribe(TrackEventHandler Method)
         {
-            _track.BeatEvent -= Method;
+            _track.TrackEvent -= Method;
         }
     }
 }
