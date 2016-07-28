@@ -1,4 +1,4 @@
-﻿using Assets.scripts.Orchestra;
+﻿using Assets.Scripts.Orchestra;
 using UnityEngine;
 
 public class SoundStore : MonoBehaviour
@@ -11,17 +11,6 @@ public class SoundStore : MonoBehaviour
     public AudioClip left;
     public AudioClip right;
 
-    private int _beat;
-    private int _measure;
-    private bool _played;
-
-    public SoundStore()
-    {
-        _beat = -1;
-        _measure = -1;
-        _played = true;
-    }
-
     void Start()
     {
         orchestrator.SubscribeToElapsed(PlaySoundClip);
@@ -29,24 +18,13 @@ public class SoundStore : MonoBehaviour
 
     internal void PlaySoundClip(int beat, int measure)
     {
-        _beat = beat;
-        _measure = measure;
-        _played = false;
-    }
-
-    void Update()
-    {
-        if (!_played)
+        if (beat == 0)
         {
-            if (_beat == 0)
-            {
-                source.PlayOneShot(up, 1f);
-            }
-            else
-            {
-                source.PlayOneShot(down, 1f);
-            }
-            _played = true;
+            source.PlayOneShot(up, 1f);
+        }
+        else
+        {
+            source.PlayOneShot(down, 1f);
         }
     }
 }

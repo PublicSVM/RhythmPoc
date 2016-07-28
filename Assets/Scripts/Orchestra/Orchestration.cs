@@ -1,32 +1,32 @@
 ﻿using UnityEngine;
 using System.Timers;
 
-namespace Assets.scripts.Orchestra
+namespace Assets.Scripts.Orchestra
 {
     public class Orchestration : MonoBehaviour
     {
-        private const int INTERVAL = 429;
-
         private Timer _timer;
         private TrackEvents _track;
 
-        void Start()
-        {
-            _timer = new Timer();
-            _timer.Interval = INTERVAL;
-            _timer.Elapsed += BeatsAndMeasures;
-            _timer.Enabled = true;
+        private int _cooldown;
 
+        public Orchestration()
+        {
             _track = new TrackEvents();
+            _cooldown = 0;
         }
 
-        void Update()
+        void FixedUpdate()
         {
-        }
-
-        private void BeatsAndMeasures(object sender, ElapsedEventArgs e)
-        {
-            _track.FireBeatEvent();
+            if (_cooldown == 0)
+            {
+                _track.FireBeatEvent();
+                _cooldown = 20;
+            }
+            else
+            {
+                _cooldown--;
+            }
         }
 
         public void SubscribeToElapsed(BeatEventHandler Method)

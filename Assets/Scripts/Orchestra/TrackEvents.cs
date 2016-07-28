@@ -1,4 +1,4 @@
-﻿namespace Assets.scripts.Orchestra
+﻿namespace Assets.Scripts.Orchestra
 {
     public delegate void BeatEventHandler(int beat, int measure);
 
