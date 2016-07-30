@@ -19,7 +19,10 @@ public class CubeBehaviour : MonoBehaviour
 
     void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
+        _audioSource = gameObject.AddComponent<AudioSource>();
+        _audioSource.playOnAwake = false;
+        _audioSource.spatialBlend = 0.75f;
+
         _renderer = GetComponent<Renderer>();
 
         Conductor.Subscribe(OnBeat);
