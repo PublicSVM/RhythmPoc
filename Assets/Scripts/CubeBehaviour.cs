@@ -3,13 +3,12 @@ using UnityEngine;
 
 public class CubeBehaviour : MonoBehaviour
 {
-    // Set in Unity
-    public Conductor Orchestrator;
-    public AudioSource AudioSource;
+    public Conductor Conductor;
     public AudioClip AudioClip;
     public int ActiveBeat;
 
-    // Data members
+    private AudioSource _audioSource;
+    private Renderer _renderer;
     private float _fade;
 
 
@@ -20,7 +19,10 @@ public class CubeBehaviour : MonoBehaviour
 
     void Start()
     {
-        Orchestrator.Subscribe(OnBeat);
+        _audioSource = GetComponent<AudioSource>();
+        _renderer = GetComponent<Renderer>();
+
+        Conductor.Subscribe(OnBeat);
     }
 
     void FixedUpdate()
@@ -29,6 +31,11 @@ public class CubeBehaviour : MonoBehaviour
         {
             _fade--;
             Rotate();
+
+            if (_fade == 0)
+            {
+                _renderer.material.color = Color.yellow;
+            }
         }
     }
 
@@ -36,7 +43,8 @@ public class CubeBehaviour : MonoBehaviour
     {
         if (beat == ActiveBeat)
         {
-            AudioSource.PlayOneShot(AudioClip);
+            _audioSource.PlayOneShot(AudioClip);
+            _renderer.material.color = Color.green;
             _fade = 15f;
             Rotate();
         }
