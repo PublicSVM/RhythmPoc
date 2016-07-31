@@ -9,6 +9,8 @@ public class SceneChange : MonoBehaviour
     public int ChangeOnMeasure;
     public int ChangeOnBeat;
 
+    // TODO Change to using a string (key) and string (next scene) instead of using the beat
+
     void Start()
     {
         Conductor.Subscribe(ChangeLevel);

@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Events;
 using UnityEngine;
 
-public class CubeBehaviour : MonoBehaviour
+public class Rotator : MonoBehaviour
 {
     public Conductor Conductor;
     public AudioClip AudioClip;
@@ -12,7 +12,7 @@ public class CubeBehaviour : MonoBehaviour
     private float _fade;
 
 
-    public CubeBehaviour()
+    public Rotator()
     {
         _fade = 0;
     }
