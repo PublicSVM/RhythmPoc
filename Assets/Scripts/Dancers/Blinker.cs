@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Events;
+using Assets.Scripts.Extensions;
 
 public class Blinker : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class Blinker : MonoBehaviour
         if (beat == ActiveBeat)
         {
             SetEnabled(true);
-            _audioSource.PlayOneShot(AudioClip);
+            _audioSource.PlaySafe(AudioClip);
             _fade = 15;
         }
     }

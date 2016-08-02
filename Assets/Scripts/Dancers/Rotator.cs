@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Events;
+using Assets.Scripts.Extensions;
 using UnityEngine;
 
 public class Rotator : MonoBehaviour
@@ -46,7 +47,7 @@ public class Rotator : MonoBehaviour
     {
         if (beat == ActiveBeat)
         {
-            _audioSource.PlayOneShot(AudioClip);
+            _audioSource.PlaySafe(AudioClip);
             _renderer.material.color = Color.green;
             _fade = 15f;
             Rotate();
