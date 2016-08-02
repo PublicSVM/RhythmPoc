@@ -9,6 +9,7 @@ namespace Assets.Scripts.Dancers
         public Conductor Conductor;
         public AudioClip AudioClip;
         public int ActiveBeat;
+        public bool DefaultState;
 
         private AudioSource _audioSource;
         private Collider _collider;
@@ -33,6 +34,8 @@ namespace Assets.Scripts.Dancers
 
             _collider = GetComponent<Collider>();
             _renderer = GetComponent<Renderer>();
+
+            Enabled = DefaultState;
 
             Conductor.Subscribe(Toggle);
         }
