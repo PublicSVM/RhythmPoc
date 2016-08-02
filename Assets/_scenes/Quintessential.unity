@@ -697,6 +697,7 @@ MonoBehaviour:
   Conductor: {fileID: 1643924883}
   AudioClip: {fileID: 8300000, guid: fa258219b46d1d64383a8582743412fa, type: 3}
   ActiveBeat: 0
+  DefaultState: 0
 --- !u!23 &438642327
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1087,6 +1088,7 @@ MonoBehaviour:
   Conductor: {fileID: 1643924883}
   AudioClip: {fileID: 8300000, guid: fa258219b46d1d64383a8582743412fa, type: 3}
   ActiveBeat: 0
+  DefaultState: 0
 --- !u!23 &895746129
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1181,6 +1183,7 @@ MonoBehaviour:
   Conductor: {fileID: 1643924883}
   AudioClip: {fileID: 8300000, guid: fa258219b46d1d64383a8582743412fa, type: 3}
   ActiveBeat: 0
+  DefaultState: 1
 --- !u!23 &1237105727
 MeshRenderer:
   m_ObjectHideFlags: 0
